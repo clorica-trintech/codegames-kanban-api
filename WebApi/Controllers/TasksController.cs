@@ -11,23 +11,11 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     public class TasksController : Controller
     {
-        // GET api/values
-        [HttpGet]
-        public TaskDocument[] Get()
-        {
-            
-            return new SearchService().Search();
-            //return new[] {new TaskDocument() {action = "test"}};
-            //HttpClient c = new HttpClient();
-            //var resp = c.GetStringAsync("http://elasticsearch:9200").Result;
-            //return resp;
-        }
-
+        
         // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        public TaskDto[] Get([FromQuery] string owner)
         {
-            return "value";
+            return new SearchService().Search(owner);
         }
 
         // POST api/values
