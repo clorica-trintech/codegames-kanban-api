@@ -1,19 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Service;
 
 namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class TasksController : Controller
     {
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public string Get()
         {
-            return new string[] { "value1", "value2" };
+            
+            //return new SearchService().Search();
+            //return new[] {new TaskDocument() {action = "test"}};
+            HttpClient c = new HttpClient();
+            var resp = c.GetStringAsync("http://localhost:9200").Result;
+            return resp;
         }
 
         // GET api/values/5
