@@ -9,7 +9,7 @@ namespace WebApi.Service
         public TaskDocument[] Search()
         {
             
-            var settings = new ConnectionSettings(new Uri("http://localhost:9200"))
+            var settings = new ConnectionSettings(new Uri("http://elasticsearch:9200"))
                 .DefaultIndex("close");
             var client = new ElasticClient(settings);
             var request = client.Search<TaskDocument>(x=>x.AllIndices().Type("task"));

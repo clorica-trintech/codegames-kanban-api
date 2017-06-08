@@ -13,14 +13,14 @@ namespace WebApi.Controllers
     {
         // GET api/values
         [HttpGet]
-        public string Get()
+        public TaskDocument[] Get()
         {
             
-            //return new SearchService().Search();
+            return new SearchService().Search();
             //return new[] {new TaskDocument() {action = "test"}};
-            HttpClient c = new HttpClient();
-            var resp = c.GetStringAsync("http://localhost:9200").Result;
-            return resp;
+            //HttpClient c = new HttpClient();
+            //var resp = c.GetStringAsync("http://elasticsearch:9200").Result;
+            //return resp;
         }
 
         // GET api/values/5

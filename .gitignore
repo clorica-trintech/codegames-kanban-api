@@ -1,1 +1,8 @@
 WebApi/obj/
+packages/
+WebApi/bin/
+Test/bin/
+Test/obj/
+SearchClient/bin/
+SearchClient/obj/
+*.suo
